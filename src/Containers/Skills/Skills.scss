@@ -1,13 +1,22 @@
-@import "../../Utils/GlobalColours";
-
 .skills-main-div {
   display: flex;
-  width: 100%;
   overflow: hidden;
 }
 
+.skills-header {
+  font-size: 40px;
+  line-height: 1.1;
+  font-family: "Google Sans Regular";
+  text-align: center;
+}
+
+.skills-text {
+  font-size: 20px;
+}
+
 .skills-text-div {
-  margin-right: 50px; /* Changed to margin-right */
+  margin-left: 50px;
+  font-family: "Google Sans Regular";
 }
 
 .skills-main-div > * {
@@ -15,17 +24,17 @@
   margin-bottom: 30px;
 }
 
-.skills-image-div > img {
+.skills-image-div > * {
   max-width: 100%;
   height: auto;
+  margin-top: 100px;
 }
 
 .skills-heading {
   font-size: 56px;
   font-weight: 400;
-}
-.subTitle {
-  color: $subTitle;
+  font-family: "Google Sans Regular";
+  line-height: normal;
 }
 
 /* Media Query */
@@ -33,24 +42,28 @@
   .skills-heading {
     font-size: 40px;
   }
+  .skills-header {
+    font-size: 50px;
+  }
 }
 @media (max-width: 768px) {
-  .skills-main-div {
-    flex-direction: row-reverse; /* Reverse order for image on right */
+  .skills-heading {
+    font-size: 30px;
+    text-align: center;
   }
-  .skills-image-div {
-    order: 1; /* Move image to display first */
+  .skills-header {
+    font-size: 30px;
   }
   .greeting-text-p {
     font-size: 16px;
     line-height: normal;
   }
   .skills-main-div {
-    flex-direction: column-reverse; /* Changed to column-reverse */
+    flex-direction: column;
   }
   .skills-text-div {
-    margin-right: 0px; /* Changed to margin-right */
-    margin-left: 20px; /* Added margin-left */
+    margin-left: 0px;
+    margin: 20px;
   }
   .skills-text {
     font-size: 16px;
@@ -58,5 +71,12 @@
   .skills-text-subtitle {
     font-size: 16px;
     text-align: center;
+  }
+  .skills-image-div {
+    /* display: none; */
+    order: 2;
+  }
+  .skills-image-div > * {
+    margin-top: 0px;
   }
 }

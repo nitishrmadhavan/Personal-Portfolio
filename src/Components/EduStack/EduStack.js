@@ -1,72 +1,63 @@
-import React, {createRef, useContext} from "react";
-import {Fade, Slide} from "react-reveal";
+import React, { Component } from "react";
 import "./EduStack.scss";
-import StyleContext from "../../Utils/StyleContext";
+import { Fade, Flip } from "react-reveal";
 
-export default function EducationCard({school}) {
-  const imgRef = createRef();
-
-  const GetDescBullets = ({descBullets}) => {
-    return descBullets
-      ? descBullets.map((item, i) => (
-          <li key={i} className="subTitle">
-            {item}
-          </li>
-        ))
-      : null;
-  };
-  const {isDark} = useContext(StyleContext);
-
-  if (!school.logo)
-    console.error(`Image of ${school.name} is missing in education section`);
-  return (
-    <div>
-      <Fade left duration={1000}>
-        <div className="education-card">
-          {school.logo && (
-            <div className="education-card-left">
+class EduStack extends Component {
+  render() {
+    const degree = this.props.degree;
+    return (
+      <div className="degree-card">
+        {degree.logo_path && (
+          <Flip left duration={2000}>
+            <div className="card-img">
               <img
-                crossOrigin={"anonymous"}
-                ref={imgRef}
-                className="education-roundedimg"
-                src={school.logo}
-                alt={school.schoolName}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  transform: "scale(0.9)",
+                }}
+                src={require(`../../Assets/Images/${degree.logo_path}`)}
+                alt={degree.alt_name}
               />
             </div>
-          )}
-          <div className="education-card-right">
-            <h5 className="education-text-school">{school.schoolName}</h5>
-
-            <div className="education-text-details">
-              <h5
-                className={
-                  isDark
-                    ? "dark-mode education-text-subHeader"
-                    : "education-text-subHeader"
-                }
-              >
-                {school.subHeader}
-              </h5>
-              <p
-                className={`${
-                  isDark ? "dark-mode" : ""
-                } education-text-duration`}
-              >
-                {school.duration}
-              </p>
-              <p className="education-text-desc">{school.desc}</p>
-              <div className="education-text-bullets">
-                <ul>
-                  <GetDescBullets descBullets={school.descBullets} />
-                </ul>
+          </Flip>
+        )}
+        <Fade right duration={2000} distance="40px">
+          <div
+            className="card-body"
+            style={{ width: degree.logo_path ? "90%" : "100%" }}
+          >
+            <div
+              className="body-header"
+            >
+              <div className="body-header-title">
+                <h2 className="card-title">
+                  {degree.title}
+                </h2>
+                <h3 className="card-subtitle">
+                  {degree.subtitle}
+                </h3>
+              </div>
+              <div className="body-header-duration">
+                <h3 className="duration">
+                  {degree.duration}
+                </h3>
               </div>
             </div>
+            <div className="body-content">
+              {degree.descriptions.map((sentence) => {
+                return (
+                  <p className="content-list">
+                    {sentence}
+                  </p>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </Fade>
-      <Slide left duration={2000}>
-        <div className="education-card-border"></div>
-      </Slide>
-    </div>
-  );
+        </Fade>
+      </div>
+    );
+  }
 }
+
+export default EduStack;

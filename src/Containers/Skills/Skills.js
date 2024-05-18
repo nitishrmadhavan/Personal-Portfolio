@@ -1,34 +1,55 @@
 import React from "react";
 import "./Skills.scss";
-import SoftwareSkill from "../../Components/TechStack/TechStack";
+import TeckStack from "../../Components/TechStack/TechStack";
 import { SkillsSectionConst } from "../../Utils/Constants";
 import { Fade } from "react-reveal";
 
 export default function Skills() {
-  if (!SkillsSectionConst.display) {
-    return null;
+  if (SkillsSectionConst.display) {
+    const skillsData = SkillsSectionConst?.data || [];
+    return (
+      <><div className="main" id="skills">
+        <div className="skills-header-div">
+          <Fade bottom duration={2000} distance="20px">
+            <h1 className="skills-header">
+              What I do?
+            </h1>
+          </Fade>
+        </div>
+        <TeckStack />
+      </div><div>
+          {skillsData.map((skill, i) => {
+            return (
+              <div key={i} className="skills-main-div">
+                <div className="skills-text-div">
+                  <Fade right duration={1000}>
+                    <h1 className="skills-heading">
+                      {skill.title}
+                    </h1>
+                  </Fade>
+                  <Fade right duration={1500}>
+                    <TeckStack logos={skill.softwareSkills} />
+                  </Fade>
+                  <Fade right duration={2000}>
+                    <div>
+                      {skill.skills?.map((skillSentence, i) => {
+                        return (
+                          <p
+                            key={i}
+                            className="subTitle skills-text"
+                          >
+                            {skillSentence}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  </Fade>
+                </div>
+              </div>
+            );
+          })}
+        </div></>
+    );
   }
-  return (
-    <div className="main" id="skills">
-      <div className="skills-main-div">
-        <Fade right duration={1000}>
-          <div className="skills-text-div">
-            <h1 className="skills-heading">{SkillsSectionConst.title}</h1>
-            <p className="subTitle skills-text-subtitle">{SkillsSectionConst.subTitle}</p>
-            <SoftwareSkill />
-            <div>
-              {Array.isArray(SkillsSectionConst.skills) &&
-                SkillsSectionConst.skills.map((skills, i) => {
-                  return (
-                    <p key={i} className="subTitle skills-text">
-                      {skills}
-                    </p>
-                  );
-                })}
-            </div>
-          </div>
-        </Fade>
-      </div>
-    </div>
-  );
+  return null;
 }

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import NavBar from "./Containers/NavBar/NavBar"
 import Greeting from "./Containers/Greeting/Greeting";
 import Skills from "./Containers/Skills/Skills";
 import Experience from "./Containers/Experience/Experience";
@@ -38,6 +39,7 @@ const Main = () => {
           <SplashScreen />
         ) : (
           <>
+            <NavBar />
             <Greeting />
             <Skills />
             <Experience />
