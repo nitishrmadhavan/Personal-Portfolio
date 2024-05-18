@@ -22,68 +22,107 @@ const GreetingConst = {
 };
 
 const SkillsSectionConst = {
-  title: "Skills",
-  subTitle: "Eager Software Development Learner",
-  /* Make Sure to include correct Font Awesome Classname to view your icon
-https://fontawesome.com/icons?d=gallery */
-
-  softwareSkills: [
+  display: true,
+  data: [
     {
-      skillName: "Java",
-      fontAwesomeClassname: "fab fa-java"
+      title: "Software Development",
+      skills: [
+      ],
+      softwareSkills: [
+        {
+          skillName: "Java",
+          fontAwesomeClassname: "simple-icons:java",
+          style: {
+            color: "#E34F26",
+          },
+        },
+        {
+          skillName: "MongoDB",
+          fontAwesomeClassname: "simple-icons:mongoDB",
+          style: {
+            color: "#E34F26",
+          },
+        },
+        {
+          skillName: "MySQL",
+          fontAwesomeClassname: "simple-icons:mysql",
+          style: {
+            color: "#E34F26",
+          },
+        },
+        {
+          skillName: "HTML5",
+          fontAwesomeClassname: "simple-icons:html",
+          style: {
+            color: "#E34F26",
+          },
+        },
+        {
+          skillName: "CSS3",
+          fontAwesomeClassname: "fa-css3",
+          style: {
+            color: "#1572B6",
+          },
+        },
+        {
+          skillName: "Sass",
+          fontAwesomeClassname: "simple-icons:sass",
+          style: {
+            color: "#CC6699",
+          },
+        },
+        {
+          skillName: "ReactJS",
+          fontAwesomeClassname: "simple-icons:react",
+          style: {
+            color: "#61DAFB",
+          },
+        },
+      ],
     },
     {
-      skillName: "MongoDB",
-      fontAwesomeClassname: "fas fa-database"
+      title: "Graphic Design",
+      skills: [
+      ],
+      softwareSkills: [
+        {
+          skillName: "Adobe Illustrator",
+          fontAwesomeClassname: "simple-icons:adobexd",
+          style: {
+            color: "#FF2BC2",
+          },
+        },
+        {
+          skillName: "Adobe Photoshop",
+          fontAwesomeClassname: "simple-icons:figma",
+          style: {
+            color: "#F24E1E",
+          },
+        },
+        {
+          skillName: "Adobe Premiere Pro",
+          fontAwesomeClassname: "simple-icons:adobeillustrator",
+          style: {
+            color: "#FF7C00",
+          },
+        },
+        {
+          skillName: "Adobe After Effects",
+          fontAwesomeClassname: "simple-icons:inkscape",
+          style: {
+            color: "#000000",
+          },
+        },
+      ],
     },
-    {
-      skillName: "PSQL",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "HTML",
-      fontAwesomeClassname: "fab fa-html5"
-    },
-    {
-      skillName: "CSS",
-      fontAwesomeClassname: "fab fa-css3-alt"
-    },
-    {
-      skillName: "ReactJS",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "Git",
-      fontAwesomeClassname: "fab fa-git-alt"
-    },
-    {
-      skillName: "Docker",
-      fontAwesomeClassname: "fab fa-docker"
-    },
-    {
-      skillName: "Jenkins",
-      fontAwesomeClassname: "fab fa-jenkins"
-    },
-    {
-      skillName: "AWS",
-      fontAwesomeClassname: "fab fa-aws"
-    },
-    {
-      skillName: "REST",
-      fontAwesomeClassname: "fas fa-server"
-    },
-    {
-      skillName: "SOAP",
-      fontAwesomeClassname: "fas fa-server"
-    }
   ],
-  display: true // Set false to hide this section, defaults to true
 };
+
 const ExperiencesConst = {
-  display: true, //Set it to true to show workExperiences Section
+  display: true,
   experience: [
     {
-      role: "Intern - Techno Functional Full Stack QA&E",
+      role: "Intern - Techno Functional Intern",
       company: "Lentra.AI",
       companylogo: require("./../Assets/Images/LentraLogo.png"),
       date: "July/2023 - May/2024",
@@ -99,19 +138,30 @@ const ExperiencesConst = {
   ]
 };
 
-const EducationInfoConst={
-  display: true, 
-  schools: [
+const EducationInfoConst = {
+  display: true,
+  degrees: [
+    // {
+    //   title: "The University of Queensland, Brisbane",
+    //   subtitle: "Master of Computer Science",
+    //   logo_path: "UQ_Logo.png",
+    //   alt_name: "UQ",
+    //   duration: "July 2024 - Present",
+    //   descriptions: [
+    //   ],
+    // },
     {
-      schoolName: "Vellore Institute of Technology",
-      logo: require("../Assets/Images/VITLogo.png"),
-      subHeader: "Master of Techology in Computer Science and Engineering - Integrated (5 Years)",
-      duration: "July 2019 - July 2024",
-      desc: "",
-      descBullets: [""
-      ]
+      title: "Vellore Institute of Technology, Vellore",
+      subtitle: "Integrated Master of Techology in Computer Science and Engineering (5 Years)",
+      logo_path: "VITLogo.png",
+      alt_name: "VIT'V",
+      duration: "July 2019 - May 2024",
+      descriptions: [
+        "Grade -  8.03 / 10 CGPA",
+        "Relevant Coursework: Operating System Principles, Data Communication and Networks, Software Verification and Validation,Application Development and Deployment Architecture,Software Application Architecture."
+      ],
     }
-  ]
+  ],
 };
 
 const ProjectsConst = {
